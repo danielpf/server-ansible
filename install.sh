@@ -1,6 +1,7 @@
 #!/bin/sh
 
-echo testing
+sudo apt-get update
+sudo apt-get install ansible
 
 
 
