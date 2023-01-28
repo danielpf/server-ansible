@@ -1,1 +1,3 @@
-ansible-pull -U https://github.com/danielf/server-ansible.git -d /tmp
+ansible-pull -o -v \
+  -U https://github.com/danielf/server-ansible.git \
+  -d /home/ansible/

@@ -4,7 +4,7 @@ set keyfile=~/.ssh/danielpf
 
 for /f %%i in ('arp -a ^| findstr %mac%') do set ip=%%i
 echo "ip: %ip%"
-scp -i %keyfile% install.sh "%username%@%ip%:~"
+scp -i %keyfile% -r server-ansible "%username%@%ip%:~"
 
-ssh -t -i %keyfile% "%username%@%ip%" "sudo chmod +x install.sh && ~/install.sh"
+ssh -t -i %keyfile% "%username%@%ip%" "cd server-ansible && sudo ./hyperv/install.sh"
 
