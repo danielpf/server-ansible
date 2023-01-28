@@ -4,7 +4,7 @@ set keyfile=~/.ssh/danielpf
 for /f %%i in ('arp -a ^| findstr %mac%') do set ip=%%i
 
 echo "ip: %ip%"
-ssh -t -i %keyfile% -o ServerAliveInterval=20 -o ServerAliveInterval=20 TCPKeepAlive=no "%username%@%ip%"
+ssh -t -i %keyfile% -o ServerAliveInterval=20 -o TCPKeepAlive=no "%username%@%ip%"
 
 
 
