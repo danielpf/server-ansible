@@ -1,4 +1,4 @@
 #!/bin/sh
 ansible-pull -o -v \
-  -U https://github.com/danielf/server-ansible.git \
+  -U https://github.com/danielpf/server-ansible.git \
   -d /home/ansible/foo
