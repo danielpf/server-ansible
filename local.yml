@@ -2,4 +2,5 @@
   roles:
     - basic
     - ansible-pull
+    - nerdctl
 
