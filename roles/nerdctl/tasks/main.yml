@@ -15,7 +15,8 @@
 
 - name: testing
   ansible.builtin.debug:
-    msg: "{{ nerdctl_release_url.results[0] }}"
-# - get_url:
-#     url: "{{ release_url }}"
-#     dest: "/tmp/foo"
+    msg: "{{ nerdctl_release_url.results[0].item }}"
+
+- get_url:
+    url: "{{ nerdctl_release_url.results[0].item }}"
+    dest: "/tmp/foo"
