@@ -1,0 +1,3 @@
+- name: more apt packages
+  apt:
+    name: [git, htop]
