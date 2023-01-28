@@ -4,7 +4,7 @@
 - name: Display all cluster names
   ansible.builtin.debug:
     var: item
-  loop: "{{ json | community.general.json_query(release_query) }}"
+  loop: "{{ json.json | community.general.json_query(release_query) }}"
   vars:
     release_query: "assets[?contains(name,'linux-amd64')&&contains(name,'full')].browser_download_url"
 # - get_url:
