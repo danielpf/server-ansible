@@ -1,4 +1,5 @@
 - name: Install the ansible-pull script
+  become: yes
   ansible.builtin.copy: src=ansible-pull.sh dest=/usr/sbin/run-ansible-pull mode=0755 owner=root group=root
 
 - name: Install cronjob
