@@ -5,15 +5,14 @@
   no_log: true
   register: json_response
 - name: get download url
-  ansible.builtin.debug:
-    var: item
+  set_fact:
+    nerdctl_release_url: "{{ last }}"
   loop: "{{ json_response.json | community.general.json_query(release_query) }}"
-  register: release_url
   vars:
     release_query: "assets[?contains(name,'linux-amd64')&&contains(name,'full')].browser_download_url"
 - name: testing
   ansible.builtin.debug:
-    msg: "{{ release_url }}"
+    msg: "{{ nerdctl_release_url }}"
 # - get_url:
 #     url: "{{ release_url }}"
 #     dest: "/tmp/foo"
