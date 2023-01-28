@@ -6,5 +6,5 @@ for /f %%i in ('arp -a ^| findstr %mac%') do set ip=%%i
 echo "ip: %ip%"
 scp -i %keyfile% -r server-ansible "%username%@%ip%:~"
 
-ssh -t -i %keyfile% "%username%@%ip%" "cd server-ansible && sudo ./hyperv/install.sh"
+ssh -t -i %keyfile% "%username%@%ip%" "cd server-ansible && sudo apt-get install dos2unix && dos2unix ./hyperv/install.sh && ./hyperv/install.sh"
 
