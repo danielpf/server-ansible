@@ -1,5 +1,5 @@
 #!/bin/sh
-#
+
 sudo apt-get update
 sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
 sudo apt-get upgrade -y
