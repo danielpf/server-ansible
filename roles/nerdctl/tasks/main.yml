@@ -2,6 +2,11 @@
     url: https://api.github.com/repos/containerd/nerdctl/releases/latest
     return_content: true
   register: json_reponse
-- get_url:
-    url: "{{ json_reponse.json.tarball_url }}"
-    dest: /tmp/"nerdctl-{{ json_reponse.json.tag_name }}".tar.gz
+- name: Display all cluster names
+  ansible.builtin.debug:
+    var: item
+  loop: "{{ domain_definition | community.general.json_query('assets[*].name') }}"
+# - get_url:
+#     url: "{{ json_reponse.json.tarball_url }}"
+#       https://github.com/containerd/nerdctl/releases/download/v1.1.0/nerdctl-full-1.1.0-linux-amd64.tar.gz
+#     dest: /tmp/"nerdctl-{{ json_reponse.json.tag_name }}.tar.gz"
