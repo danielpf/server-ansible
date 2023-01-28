@@ -6,10 +6,11 @@
   register: json_response
 - name: get download url
   set_fact:
-    nerdctl_release_url: "{{ last }}"
+    nerdctl_release_url: "{{ item }}"
   loop: "{{ json_response.json | community.general.json_query(release_query) }}"
   vars:
     release_query: "assets[?contains(name,'linux-amd64')&&contains(name,'full')].browser_download_url"
+  when: loop.last
 - name: testing
   ansible.builtin.debug:
     msg: "{{ nerdctl_release_url }}"
