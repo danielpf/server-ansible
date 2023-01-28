@@ -1,9 +1,10 @@
-- uri:
+- name: check latest release
+  uri:
     url: https://api.github.com/repos/containerd/nerdctl/releases/latest
     return_content: true
   no_log: true
   register: json_response
-- name: Display all cluster names
+- name: get download url
   ansible.builtin.debug:
     var: item
   loop: "{{ json_response.json | community.general.json_query(release_query) }}"
@@ -12,4 +13,4 @@
     release_query: "assets[?contains(name,'linux-amd64')&&contains(name,'full')].browser_download_url"
 - get_url:
     url: "{{ release_url }}"
-    dest: "{{ ansible_env.HOME }}/nerdctl-{{ json_response.json.tag_name }}.tar.gz"
+    dest: "/tmp/foo"
