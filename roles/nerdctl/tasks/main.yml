@@ -4,4 +4,4 @@
   register: json_reponse
 - get_url:
     url: "{{ json_reponse.json.tarball_url }}"
-    dest: ./"nerdctl-{{ json_reponse.json.tag_name }}".tar.gz
+    dest: /tmp/"nerdctl-{{ json_reponse.json.tag_name }}".tar.gz
