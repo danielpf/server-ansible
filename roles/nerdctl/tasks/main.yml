@@ -1,10 +1,12 @@
 - uri:
     url: https://api.github.com/repos/containerd/nerdctl/releases/latest
     return_content: true
+  no_log: true
+  register: json_response
 - name: Display all cluster names
   ansible.builtin.debug:
     var: item
-  loop: "{{ json.json | community.general.json_query(release_query) }}"
+  loop: "{{ json_response.json | community.general.json_query(release_query) }}"
   vars:
     release_query: "assets[?contains(name,'linux-amd64')&&contains(name,'full')].browser_download_url"
 # - get_url:
