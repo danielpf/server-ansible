@@ -11,7 +11,7 @@ sudo bash -c "echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ansible"
 
 dos2unix ansible-pull.sh
 chmod +x ansible-pull.sh
-./ansible-pull.sh
+sudo -u ansible ./ansible-pull.sh
 CURR_DIR=$(basename $PWD)
 cd ..
 rm -rf $CURR_DIR
