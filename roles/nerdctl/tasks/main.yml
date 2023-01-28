@@ -6,6 +6,8 @@
   register: json_response
 
 - name: get download url
+  ansible.builtin.debug:
+    var: item
   loop: "{{ json_response.json | community.general.json_query(release_query) }}"
   vars:
     release_query: "assets[?contains(name,'linux-amd64')&&contains(name,'full')].browser_download_url"
