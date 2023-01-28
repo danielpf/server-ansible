@@ -9,6 +9,8 @@ sudo apt-get autoremove -y
 sudo useradd -m -G sudo ansible
 sudo bash -c "echo 'ansible ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/ansible"
 
+dos2unix ansible-pull.sh
+chmod +x ansible-pull.sh
 ./ansible-pull.sh
 CURR_DIR=$(basename $PWD)
 cd ..
