@@ -11,6 +11,9 @@
   register: release_url
   vars:
     release_query: "assets[?contains(name,'linux-amd64')&&contains(name,'full')].browser_download_url"
-- get_url:
-    url: "{{ release_url }}"
-    dest: "/tmp/foo"
+- name: testing
+  ansible.builtin.debug:
+    msg: "{{ release_url }}"
+# - get_url:
+#     url: "{{ release_url }}"
+#     dest: "/tmp/foo"
