@@ -31,5 +31,6 @@
 - name: install rootless
   become_user: danielf
   become: true
+  remote_tmp: /home/danielf/ansible-tmp
   shell: containerd-rootless-setuptool.sh install
 
