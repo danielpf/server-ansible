@@ -37,7 +37,7 @@
 - name: install dbus thing
   become: true
   apt:
-    name: dbus-user-sessoin
+    name: dbus-user-session
     state: latest
 
 - name: install rootless
