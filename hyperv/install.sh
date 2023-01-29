@@ -18,11 +18,6 @@ rm -rf $CURR_DIR
 rm -rf $HOME/.ansible
 
 
-#sudo usermod -a -G microk8s danielf
-#sudo chown -R danielf ~/.kube
-#echo "re-login to get permissions"
-##sudo microk8s kubectl config view --raw > $HOME/.kube/config
-#
 #
 #microk8s.enable dashboard dns ingress registry
 #sudo snap install kubectl --classic
