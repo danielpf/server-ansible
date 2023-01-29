@@ -5,10 +5,16 @@
     append: yes
   become: true
 
-- name: install k8s utils
+- name: install helm
   become: true
   snap:
-    name: [kubectl, helm]  # do we actually need kubectl?
+    name: kubectl
+    classic: true
+
+- name: install helm
+  become: true
+  snap:
+    name: helm
 
 - name: kube cfg dir permissions
   become: true
