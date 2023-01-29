@@ -29,7 +29,7 @@
     remote_src: yes
 
 - name: install rootless
-  command: systemctl --user
+  shell: systemctl --user
   become_user: danielf
   become: true
 
