@@ -45,5 +45,6 @@
   shell: containerd-rootless-setuptool.sh install
   become_user: danielf
   become: true
+  become_flags: -t
   # become_method: machinectl
 
