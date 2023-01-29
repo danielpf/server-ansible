@@ -1,9 +1,10 @@
 - name: add to group
   user:
-    name: danielf
+    name: "{{ item }}"
     groups: microk8s
     append: yes
   become: true
+  with_items: [danielf, ansible]
 
 - name: install helm
   become: true
