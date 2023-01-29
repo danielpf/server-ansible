@@ -7,8 +7,7 @@
   with_items: [danielf, ansible]
 
 - name: Switch to root and refresh groups  # todo: check if this works
-  become: true
-  become_user: root
+  shell: su - root -c "id"
 
 - name: install helm
   become: true
