@@ -1,4 +1,5 @@
 - name: more apt packages
+  become: true
   apt:
     name: [git, htop, acl]
     state: latest
