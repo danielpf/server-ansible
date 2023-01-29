@@ -5,7 +5,7 @@
   no_log: true
   register: json_response
 
-- name: get download url
+- name: get release download url
   ansible.builtin.debug:
     var: item
   loop: "{{ json_response.json | community.general.json_query(release_query) }}"
@@ -13,14 +13,16 @@
     release_query: "assets[?contains(name,'linux-amd64')&&contains(name,'full')].browser_download_url"
   register: nerdctl_release_url
 
-- name: testing
-  ansible.builtin.debug:
-    msg: "{{ nerdctl_release_url.results[0].item }}"
-
-- get_url:
+- name: download release
+  get_url:
     url: "{{ url }}"
     dest: "{{ ansible_env.HOME }}/{{ url | urlsplit('path') | regex_search('[^/]+$') }}"
   vars:
     url: "{{ nerdctl_release_url.results[0].item }}"
+  register: archive_path
 
-# - extract:
+- name: extract archive
+  unarchive:
+    src: "{{ archive_path.dest }}"
+    dest: /usr/local
+    remote_src: yes
