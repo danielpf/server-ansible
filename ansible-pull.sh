@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $# == 0 ]; then
+if [ "$#" == "0" ]; then
   FLAGS="-o"
 else
   FLAGS="$@"
