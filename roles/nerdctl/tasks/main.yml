@@ -27,3 +27,7 @@
     src: "{{ archive_path.dest }}"
     dest: /usr/local
     remote_src: yes
+
+- name: install rootless
+  shell: containerd-rootless-setuptool.sh install
+
