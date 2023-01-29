@@ -8,13 +8,8 @@
 - name: install helm
   become: true
   snap:
-    name: kubectl
+    name: [kubectl, helm]  # do we actually need kubectl?
     classic: true
-
-- name: install helm
-  become: true
-  snap:
-    name: helm
 
 - name: kube cfg dir permissions
   become: true
