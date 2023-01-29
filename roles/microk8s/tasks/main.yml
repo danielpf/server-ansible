@@ -11,24 +11,18 @@
     name: [kubectl, helm]  # do we actually need kubectl?
     classic: true
 
-- name: kube cfg dir permissions
+- name: create kube cfg dir
   become: true
   file:
     path: /home/danielf/.kube
     state: directory
 
-- name: create kubecfg
+- name: create kube cfg file
   become: true
   shell: |
     microk8s kubectl config view --raw > /home/danielf/.kube/config
   args:
     creates: /home/danielf/.kube/config
-
-- name: kube cfg dir permissions
-  become: true
-  file:
-    path: /home/danielf/.kube
-    mode: 0700
 
 - name: kube cfg files permissions
   become: true
@@ -37,4 +31,10 @@
     owner: danielf
     group: danielf
     recurse: yes
+
+- name: kube cfg file permissions
+  become: true
+  file:
+    path: /home/danielf/.kube/config
+    mode: 0550
 
