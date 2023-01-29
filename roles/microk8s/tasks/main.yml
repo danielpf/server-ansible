@@ -28,6 +28,12 @@
   become: true
   file:
     path: /home/danielf/.kube
+    mode: 700
+
+- name: kube cfg files permissions
+  become: true
+  file:
+    path: /home/danielf/.kube
     owner: danielf
     group: danielf
     recurse: yes
