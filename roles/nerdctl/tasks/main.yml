@@ -30,5 +30,6 @@
 
 - name: install rootless
   remote_user: danielf
+  become: true
   shell: containerd-rootless-setuptool.sh install
 
