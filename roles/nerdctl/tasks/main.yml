@@ -40,7 +40,7 @@
 
 - name: install rootless
   shell: containerd-rootless-setuptool.sh install
-  become_method: machinectl
   become_user: danielf
   become: true
+  # become_method: machinectl
 
