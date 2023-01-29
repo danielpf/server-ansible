@@ -32,5 +32,4 @@
   command: containerd-rootless-setuptool.sh install
   become_user: danielf
   become: true
-  remote_tmp: /home/danielf/ansible-nerdctl-tmp
 
