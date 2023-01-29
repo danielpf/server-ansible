@@ -34,10 +34,22 @@
     name: systemd-container
     state: latest
 
-- name: install dbus thing
+- name: install dbus thing  # probably not needed
   become: true
   apt:
     name: dbus-user-session
+    state: latest
+
+- name: install RootlessKit
+  become: true
+  apt:
+    name: rootlesskit
+    state: latest
+
+- name: install slirp4netns
+  become: true
+  apt:
+    name: slirp4netns
     state: latest
 
 - name: install rootless
