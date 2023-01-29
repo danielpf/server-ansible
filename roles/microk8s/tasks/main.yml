@@ -38,3 +38,6 @@
     path: /home/danielf/.kube/config
     mode: 0550
 
+- name: enable some services
+  command: microk8s.enable dashboard dns ingress registry
+

@@ -17,10 +17,6 @@ cd ..
 rm -rf $CURR_DIR
 rm -rf $HOME/.ansible
 
-
-#
 #microk8s.enable dashboard dns ingress registry
-#sudo snap install kubectl --classic
-#sudo snap install helm --classic
 
 # sudo snap install docker.io --classic
