@@ -12,6 +12,7 @@
     state: directory
 
 - name: create kubecfg
+  become: true
   shell: |
     microk8s kubectl config view --raw > /home/danielf/.kube/config
   args:
