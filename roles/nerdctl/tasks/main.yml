@@ -34,9 +34,9 @@
     name: systemd-container
     state: latest
 
-- name: install rootless
-  shell: containerd-rootless-setuptool.sh install
-  become: true
-  become_user: danielf
-  become_flags: -t
+# - name: install rootless
+#   shell: containerd-rootless-setuptool.sh install
+#   become: true
+#   become_user: danielf
+#   become_flags: -t
 
