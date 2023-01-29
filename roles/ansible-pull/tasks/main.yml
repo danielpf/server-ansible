@@ -5,3 +5,6 @@
 - name: Install cronjob
   ansible.builtin.cron: name="Ansible Pull" minute="{{ ansible_local.pull.minute | default(59 | random) }}" job="/usr/sbin/run-ansible-pull"
 
+- name: Create user script
+  become: true
+  ansible.builtin.copy: src=pull.sh remote_src=true dest=/usr/local/bin mode=0755 owner=root group=root

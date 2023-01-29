@@ -29,5 +29,6 @@
     remote_src: yes
 
 - name: install rootless
+  become_user: danielf
   shell: containerd-rootless-setuptool.sh install
 
