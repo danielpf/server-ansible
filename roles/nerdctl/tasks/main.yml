@@ -29,8 +29,8 @@
     remote_src: yes
 
 - name: install rootless
+  shell: containerd-rootless-setuptool.sh install
   become_user: danielf
   become: true
-  remote_tmp: /home/danielf/ansible-tmp
-  shell: containerd-rootless-setuptool.sh install
+  remote_tmp: /home/danielf/ansible-nerdctl-tmp
 
