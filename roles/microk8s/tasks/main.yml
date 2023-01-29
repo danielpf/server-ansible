@@ -6,15 +6,22 @@
   become: true
 
 - name: kube cfg dir permissions
+  become: true
   file:
     path: /home/danielf/.kube
     state: directory
-    owner: danielf
-    group: danielf
-    recurse: yes
 
 - name: create kubecfg
   shell: |
     microk8s kubectl config view --raw > /home/danielf/.kube/config
   args:
     creates: /home/danielf/.kube/config
+
+- name: kube cfg dir permissions
+  become: true
+  file:
+    path: /home/danielf/.kube
+    owner: danielf
+    group: danielf
+    recurse: yes
+
