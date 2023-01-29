@@ -5,6 +5,11 @@
     append: yes
   become: true
 
+- name: install k8s utils
+  become: true
+  snap:
+    name: [kubectl, helm]  # do we actually need kubectl?
+
 - name: kube cfg dir permissions
   become: true
   file:
