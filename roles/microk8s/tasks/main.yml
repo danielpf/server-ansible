@@ -43,6 +43,13 @@
     path: /home/danielf/.kube/config
     mode: 0550
 
+- name: get list of addons
+  command: microk8s.status --format short
+  register: services
+
 - name: enable some services in microk8s
-  command: microk8s.enable dashboard dns ingress registry
+  command: "microk8s.enable {{ item }}"
+  with_items: [dashboard, dns, ingress, registry]
+  when: item == "dns"
+
 
