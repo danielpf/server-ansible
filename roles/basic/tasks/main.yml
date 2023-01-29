@@ -1,3 +1,4 @@
 - name: more apt packages
   apt:
-    name: [git, htop]
+    name: [git, htop, acl]
+    state: latest
