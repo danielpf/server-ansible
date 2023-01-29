@@ -36,7 +36,6 @@
 
 - name: install rootless
   shell: containerd-rootless-setuptool.sh install
-  become_user: danielf
   become: true
-  become_flags: -t
+  become_flags: -t -u danielf
 
