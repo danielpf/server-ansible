@@ -19,6 +19,6 @@
 
 - get_url:
     url: "{{ url }}"
-    dest: "/tmp/{{ url | urlsplit('path') | regex_search('[^/$]') }}"
+    dest: "/tmp/{{ url | urlsplit('path') | regex_search('[^/]+$') }}"
   vars:
     url: "{{ nerdctl_release_url.results[0].item }}"
