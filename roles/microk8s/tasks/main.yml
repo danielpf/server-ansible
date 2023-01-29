@@ -28,7 +28,7 @@
   become: true
   file:
     path: /home/danielf/.kube
-    mode: 700
+    mode: 0700
 
 - name: kube cfg files permissions
   become: true
