@@ -1,3 +1,6 @@
+- name: update cache
+  apt_cache: true
+
 - name: more apt packages
   become: true
   apt:
