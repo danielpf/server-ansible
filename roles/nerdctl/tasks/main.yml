@@ -28,15 +28,16 @@
     dest: /usr/local
     remote_src: yes
 
-# - name: install rootless
-#   shell: systemctl --user
-#   become_user: danielf
-#   become: true
 - name: install systemd-container needed for rootless
   become: true
   apt:
     name: systemd-container
     state: latest
+
+- name: install rootless
+  shell: systemctl --user
+  become_user: danielf
+  become: true
 
 - name: install rootless
   shell: containerd-rootless-setuptool.sh install
