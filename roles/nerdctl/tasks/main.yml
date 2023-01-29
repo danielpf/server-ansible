@@ -34,6 +34,12 @@
     name: systemd-container
     state: latest
 
+- name: install dbus thing
+  become: true
+  apt:
+    name: dbus-user-sessoin
+    state: latest
+
 - name: install rootless
   shell: containerd-rootless-setuptool.sh install
   become: true
