@@ -46,5 +46,6 @@
   become_user: danielf
   become: true
   become_flags: -t
+  become_method: su
   # become_method: machinectl
 
