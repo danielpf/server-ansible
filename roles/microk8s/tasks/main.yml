@@ -6,6 +6,10 @@
   become: true
   with_items: [danielf, ansible]
 
+- name: Switch to root and refresh groups  # todo: check if this works
+  become: true
+  become_user: root
+
 - name: install helm
   become: true
   snap:
@@ -39,6 +43,6 @@
     path: /home/danielf/.kube/config
     mode: 0550
 
-- name: enable some services
+- name: enable some services in microk8s
   command: microk8s.enable dashboard dns ingress registry
 
