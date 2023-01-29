@@ -14,6 +14,7 @@
     recurse: yes
 
 - name: create kubecfg
-  creates: /home/danielf/.kube/config
   shell: |
     microk8s kubectl config view --raw > /home/danielf/.kube/config
+  args:
+    creates: /home/danielf/.kube/config
