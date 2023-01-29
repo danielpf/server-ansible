@@ -32,6 +32,11 @@
 #   shell: systemctl --user
 #   become_user: danielf
 #   become: true
+- name: install systemd-container needed for rootless
+  become: true
+  apt:
+    name: systemd-container
+    state: latest
 
 - name: install rootless
   command: containerd-rootless-setuptool.sh install
