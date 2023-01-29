@@ -22,6 +22,7 @@
   register: archive_path
 
 - name: extract archive
+  become: true
   unarchive:
     src: "{{ archive_path.dest }}"
     dest: /usr/local
