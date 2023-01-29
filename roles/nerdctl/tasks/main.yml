@@ -36,6 +36,7 @@
 
 - name: install rootless
   shell: systemctl --user
+  become_method: machinectl
   become_user: danielf
   become: true
 
