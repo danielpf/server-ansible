@@ -1,0 +1,19 @@
+- name: add to group
+  user:
+    name: danielf
+    groups: microk8s
+    append: yes
+  become: true
+
+- name: kube cfg dir permissions
+  file:
+    path: /home/danielf/.kube
+    state: directory
+    owner: danielf
+    group: danielf
+    recurse: yes
+
+- name: create kubecfg
+  creates: /home/danielf/.kube/config
+  shell: |
+    microk8s kubectl config view --raw > /home/danielf/.kube/config

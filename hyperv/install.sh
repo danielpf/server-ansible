@@ -15,6 +15,7 @@ chmod +x ansible-pull.sh
 CURR_DIR=$(basename $PWD)
 cd ..
 rm -rf $CURR_DIR
+rm -rf $HOME/.ansible
 
 
 #sudo usermod -a -G microk8s danielf
