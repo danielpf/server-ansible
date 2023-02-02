@@ -52,10 +52,24 @@
     name: slirp4netns
     state: latest
 
-- name: install rootless
-  shell: containerd-rootless-setuptool.sh install
-  become: true
-  become_user: danielf
-  become_method: machinectl
+# I haven't figured out how this works yet
+# The big tar.gz should bring all dependencies, but seems we have to install more
+# stuff, or at least finish some steps manually
+# We may also need to start some services
+# systemctl --user start containerd.service
+# sudo loginctl enable-linger danielf
+# There's also an error with cni and cgroup2
+
+      #- name: install buildkit
+      #  shell: containerd-rootless-setuptool.sh install-buildkit
+      #  become: true
+      #  become_user: danielf
+      #  become_method: machinectl
+      #
+      #- name: install rootless
+      #  shell: containerd-rootless-setuptool.sh install
+      #  become: true
+      #  become_user: danielf
+      #  become_method: machinectl
 
 
