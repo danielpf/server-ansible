@@ -1,5 +1,5 @@
 all:
   hosts:
     vms:
-      vm
+      vmtest
 

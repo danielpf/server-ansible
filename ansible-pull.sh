@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env bash
 
 if [ "$#" == "0" ]; then
   FLAGS="-o"
