@@ -1,4 +1,6 @@
-- hosts: localhost
+# playbook
+
+- hosts: vm
   roles:
     - basic
     - ansible-pull
